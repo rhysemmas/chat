@@ -1,4 +1,4 @@
-package co.uk.nootnoot;
+package co.uk.nootnoot.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class ChatClient implements Runnable {
+public class Client implements AutoCloseable {
     private final String serverHost;
     private final Integer serverPort;
 
@@ -19,14 +19,11 @@ public class ChatClient implements Runnable {
     private final Queue<String> messages = new ArrayBlockingQueue<>(1000);
     private final ChatLogger logger;
 
-    ChatClient(Integer id, String serverHost, Integer serverPort) {
+    public Client(Integer id, String serverHost, Integer serverPort) {
         this.serverHost = serverHost;
         this.serverPort = serverPort;
         this.logger = new ChatLogger(id);
-    }
 
-    @Override
-    public void run() {
         try {
             var socket = new Socket(serverHost, serverPort);
             out = new PrintWriter(socket.getOutputStream(), true);
@@ -36,9 +33,10 @@ public class ChatClient implements Runnable {
         } catch (IOException e) {
             logger.log("ChatClient got error: " + e.getMessage());
         }
+
     }
 
-    public void stop() {
+    public void close() {
         logger.log("ChatClient stopping");
         receiver.stop();
         logger.log("ChatClient stopped");

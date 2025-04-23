@@ -1,4 +1,4 @@
-package co.uk.nootnoot;
+package co.uk.nootnoot.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,12 +11,12 @@ import java.net.SocketException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ChatServer implements Runnable {
+public class Server implements Runnable {
     private final ServerSocket serverSocket;
     private final Map<SocketAddress, ChatClientHandler> clients = new ConcurrentHashMap<>();
     private final ServerLogger logger;
 
-    ChatServer(Integer port) throws IOException {
+    public Server(Integer port) throws IOException {
         this.serverSocket = new ServerSocket(port);
         this.logger = new ServerLogger();
     }

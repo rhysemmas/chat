@@ -1,9 +1,9 @@
-package co.uk.nootnoot;
+package co.uk.nootnoot.network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Queue;
-import co.uk.nootnoot.ChatClient.ChatLogger;
+import co.uk.nootnoot.network.Client.ChatLogger;
 
 public class MessageReceiver implements Runnable {
     private final BufferedReader in;
