@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ChatIT {
+public class BlockingChatIT {
     private final static Integer serverPort = 8080;
     private Server server;
 
@@ -36,6 +36,7 @@ public class ChatIT {
             Assertions.assertTrue(await(client2::isRunning, 1000L));
             Assertions.assertTrue(await(client3::isRunning, 1000L));
 
+            // TODO: console, read data from console and direct it to the network layer
             client1.send(new Message(1, "Hello"));
 
             var client2Received = client2.receive();

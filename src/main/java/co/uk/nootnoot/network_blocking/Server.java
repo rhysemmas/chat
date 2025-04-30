@@ -24,6 +24,7 @@ public class Server implements Runnable {
         this.logger = new ServerLogger();
     }
 
+    @Override
     public void run() {
         try (serverSocket) {
             logger.log("Server started on port 8080");
