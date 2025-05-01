@@ -1,4 +1,4 @@
-package co.uk.nootnoot.network_blocking;
+package co.uk.nootnoot.network.blocking;
 
 import java.io.EOFException;
 import java.io.IOException;

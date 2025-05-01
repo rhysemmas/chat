@@ -1,4 +1,4 @@
-package co.uk.nootnoot.network_nonblocking;
+package co.uk.nootnoot.network.non_blocking;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

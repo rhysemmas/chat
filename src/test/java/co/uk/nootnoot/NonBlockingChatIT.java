@@ -1,13 +1,9 @@
 package co.uk.nootnoot;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
-import co.uk.nootnoot.network_nonblocking.ByteClient;
-import co.uk.nootnoot.network_nonblocking.SelectorServer;
-import co.uk.nootnoot.util.Logger;
+import co.uk.nootnoot.network.non_blocking.ByteClient;
+import co.uk.nootnoot.network.non_blocking.SelectorServer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
